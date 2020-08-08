@@ -13,8 +13,8 @@ public interface IGrocerRepo extends JpaRepository<GrocerEntity, Serializable>{
 	List<GrocerEntity> findByLocation(String location);
 	
 	
-	@Query("FROM GrocerEntity WHERE grocerID=(Select grocerID FROM itemsForSale WHERE ITEMS_LIST:item)")
-	List<GrocerEntity> findByItemForSale(String item);
+//	@Query("FROM GrocerEntity WHERE grocerID=(Select grocerID FROM itemsForSale WHERE ITEMS_LIST:item)")
+//	List<GrocerEntity> findByItemForSale(String item);
 	
 	
 }

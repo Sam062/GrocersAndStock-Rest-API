@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import base.entity.UserEntity;
+import base.exceptions.DataNotRegisteredException;
 import base.model.UserModel;
 import base.repository.IUserRepo;
 
@@ -16,9 +17,12 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public UserEntity saveUser(UserModel model) {
-		UserEntity entity=new UserEntity();
-
-		BeanUtils.copyProperties(model, entity);
-		return repo.save(entity);
+		try {
+			UserEntity entity=new UserEntity();
+			BeanUtils.copyProperties(model, entity);
+			return repo.save(entity);
+		} catch (Exception e) {
+			throw new DataNotRegisteredException();
+		}
 	}
 }
