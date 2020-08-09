@@ -48,21 +48,9 @@ public class GrocerServiceImpl implements IGrocerService {
 			throw new DataReadingException();
 		}
 	}
-	@Override
-	public ResponseModel findByItemForSale(String item) {
-		//		List<GrocerEntity> grocerEntity = repo.findByItemForSale(item);
-		//		
-		//		List<GrocerModel> listOfGrocerModel = grocerEntity.stream().map(g->{
-		//			GrocerModel grocerModel = new GrocerModel();
-		//			BeanUtils.copyProperties(g, grocerModel);
-		//			return grocerModel;
-		//		}).collect(Collectors.toList());
-		//
-		//		ResponseModel listOfGrocers = new ResponseModel();
-		//		listOfGrocers.setListOfGrocers(listOfGrocerModel);
-		//
-		//		return listOfGrocers;
-		return null;
-	}
+//	@Override
+//	public List<GrocerEntity> findByItemForSale(String itemsForSale) {
+//		return repo.findByItemsForSale(List.of(itemsForSale));
+//	}
 
 }

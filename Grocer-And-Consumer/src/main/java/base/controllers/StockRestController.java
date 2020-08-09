@@ -25,7 +25,7 @@ public class StockRestController {
 		try {
 			ResponseModel grocerList = grocerService.findByLocation(location);
 
-			if(grocerList!=null)
+			if(grocerList!=null && (!grocerList.getListOfGrocers().isEmpty()))
 				return new ResponseEntity<ResponseModel>(grocerList,HttpStatus.OK);
 			else
 				return new ResponseEntity<ResponseModel>(grocerList,HttpStatus.NO_CONTENT);
@@ -34,14 +34,14 @@ public class StockRestController {
 		}
 	}
 
-	@GetMapping("/item/{item}")
-	public ResponseEntity<ResponseModel> getGrocersByItem(@PathVariable("item")String item){
-		ResponseModel grocerList = grocerService.findByItemForSale(item);
-		if(grocerList!=null)
-			return new ResponseEntity<ResponseModel>(grocerList,HttpStatus.OK);
-		else
-			return new ResponseEntity<ResponseModel>(grocerList,HttpStatus.NO_CONTENT);
-	}
+//	@GetMapping("/item/{item}")
+//	public ResponseEntity<List<GrocerEntity>> getGrocersByItem(@PathVariable("item")String item){
+//		List<GrocerEntity> findByItemForSale = grocerService.findByItemForSale(item);
+//		if(!findByItemForSale.isEmpty())
+//			return new ResponseEntity<List<GrocerEntity>>(findByItemForSale,HttpStatus.ACCEPTED);
+//		else
+//			throw new DataReadingException();
+//	}
 
 
 }

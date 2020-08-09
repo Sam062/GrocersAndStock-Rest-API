@@ -8,6 +8,6 @@ public interface IGrocerService {
 	GrocerEntity saveGrocer(GrocerModel model);
 	ResponseModel findByLocation(String loc);
 	
-	ResponseModel findByItemForSale(String item);
+//	List<GrocerEntity> findByItemForSale(String itemsForSale);
 
 }

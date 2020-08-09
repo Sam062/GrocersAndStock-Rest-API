@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import base.entity.GrocerEntity;
+import base.entity.UserEntity;
 import base.model.GrocerModel;
 import base.model.UserModel;
 import base.service.IGrocerService;
 import base.service.IUserService;
-import base.service.UserServiceImpl;
 
 @RestController
 @RequestMapping("/register")
@@ -24,22 +25,20 @@ public class RegistrationRestController {
 	private IGrocerService grocerService;
 
 	@PostMapping(value = "/grocer",
-			consumes = "application/json",
-			produces = "application/json"
+			consumes = "application/json"
 			)
-	public ResponseEntity registerGrocer(@RequestBody GrocerModel model){
-		grocerService.saveGrocer(model);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	public ResponseEntity<String> registerGrocer(@RequestBody GrocerModel model){
+		GrocerEntity grocer = grocerService.saveGrocer(model);
+		return new ResponseEntity<>("Grocer Registered Successfully. ID : "+grocer.getGrocerID(),HttpStatus.CREATED);
 
 	}
 
 	@PostMapping(value = "/user",
-			consumes = "application/json",
-			produces = "application/json"
+			consumes = "application/json"
 			)
-	public ResponseEntity registerUser(@RequestBody UserModel model){
-		service.saveUser(model);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	public ResponseEntity<String> registerUser(@RequestBody UserModel model){
+		UserEntity user = service.saveUser(model);
+		return new ResponseEntity<>("User Registered Successfully. ID : "+user.getUserID(),HttpStatus.CREATED);
 
 	}
 }

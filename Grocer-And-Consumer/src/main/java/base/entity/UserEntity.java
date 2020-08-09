@@ -21,8 +21,8 @@ import lombok.Data;
 @Table(name = "USER_MASTER")
 public class UserEntity {
 	@Id
+	@GenericGenerator(name = "ID_GEN",strategy = "base.idGen.UserIDGenereater")
 	@GeneratedValue(generator = "ID_GEN")
-	@GenericGenerator(name = "ID_GEN",strategy = "uuid")
 	@Column(name = "USR_ID")
 	private String userID;
 	@Column(name = "USR_NAME")
