@@ -1,0 +1,3 @@
+Swagger Link : http://localhost:9695/swagger-ui.html
+
+H2 DB link : http://localhost:9695/h2-console
